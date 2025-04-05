@@ -1,0 +1,1 @@
+# Types folder for shared type definitions
