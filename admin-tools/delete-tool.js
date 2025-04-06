@@ -1,0 +1,1 @@
+// JavaScript logic for removing quiz entries
