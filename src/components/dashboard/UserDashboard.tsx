@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
 const UserDashboard = () => {
-  return (
-    <div>
-      <h2>User Dashboard</h2>
-      <p>This is a placeholder for the UserDashboard view.</p>
-    </div>
-  )
-}
+  const [username, setUsername] = useState<string | null>(null);
 
-export default UserDashboard
+  useEffect(() => {
+    const stored = localStorage.getItem('username');
+    setUsername(stored);
+  }, []);
+
+  return (
+    <div className="p-4">
+      <h1 className="text-xl font-bold mb-2">Welcome back, {username || 'Sailor'}!</h1>
+      <p className="text-sm text-gray-600">
+        Use the sidebar to start a quiz or view your history.
+      </p>
+    </div>
+  );
+};
+
+export default UserDashboard;

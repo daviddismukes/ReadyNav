@@ -1,23 +1,23 @@
+
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
 import Sidebar from '../components/Sidebar'
 import UserDashboard from '../components/dashboard/UserDashboard'
-import ResultsHistory from '../components/results/ResultsHistory'
-import LiveQuizView from '../components/quiz/LiveQuizView'
-import AdminPanel from '../components/admin/AdminPanel' // ✅ Added this line
+import ResultsHistory from '../components/dashboard/ResultsHistory'
+import LiveQuizView from '../components/dashboard/LiveQuizView'
+import AdminPanel from '../components/admin/AdminPanel'
 
 const AppRoutes = () => {
   return (
-    <Router>
+    <Router basename="/ReadyNav">
       <div style={{ display: 'flex' }}>
         <Sidebar />
-        <div style={{ marginLeft: '240px', padding: '1rem', width: '100%' }}>
+        <div style={{ flex: 1, padding: '20px' }}>
           <Routes>
             <Route path="/" element={<UserDashboard />} />
             <Route path="/results" element={<ResultsHistory />} />
-            <Route path="/quiz/sample" element={<LiveQuizView />} />
-            <Route path="/admin" element={<AdminPanel />} /> {/* ✅ Route fixed */}
+            <Route path="/live-quiz" element={<LiveQuizView />} />
+            <Route path="/admin" element={<AdminPanel />} />
           </Routes>
         </div>
       </div>
@@ -26,3 +26,4 @@ const AppRoutes = () => {
 }
 
 export default AppRoutes
+

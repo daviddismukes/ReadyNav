@@ -1,66 +1,40 @@
-import { ReactNode } from 'react'
-import { ReactComponent as Angular } from '../assets/icons/angular.svg'
-import { ReactComponent as CSS } from '../assets/icons/css-3.svg'
-import { ReactComponent as Django } from '../assets/icons/dj.svg'
-import { ReactComponent as Gatsby } from '../assets/icons/gatsby.svg'
-import { ReactComponent as JavaScript } from '../assets/icons/javascript.svg'
-import { ReactComponent as Kotlin } from '../assets/icons/kotlin.svg'
-import { ReactComponent as Laravel } from '../assets/icons/laravel.svg'
-import { ReactComponent as Python } from '../assets/icons/python.svg'
-import { ReactComponent as ReactIcon } from '../assets/icons/react.svg'
-import { ReactComponent as BulbIcon } from '../assets/icons/bulb.svg'
-
-type QuizTopic = {
-  title: string
-  icon: ReactNode
-  disabled?: boolean
-}
-
-export const quizTopics: QuizTopic[] = [
+const quizTopics = [
   {
-    title: 'React',
-    icon: <ReactIcon />,
+    id: 1,
+    title: 'General Navy Knowledge',
+    icon: '/icons/anchor.svg',
+    description: 'Covers basic Navy information and history.'
   },
   {
-    title: 'JavaScript',
-    icon: <JavaScript />,
+    id: 2,
+    title: 'Engineering Systems',
+    icon: '/icons/gear.svg',
+    description: 'Focuses on shipboard engineering and mechanical systems.'
   },
   {
-    title: 'Python',
-    icon: <Python />,
+    id: 3,
+    title: 'First Aid & Rescue',
+    icon: '/icons/first-aid.svg',
+    description: 'First responder knowledge for onboard emergencies.'
   },
   {
-    title: 'General Knowledge',
-    icon: <BulbIcon />,
+    id: 4,
+    title: 'Hearing Conservation',
+    icon: '/icons/hearing.svg',
+    description: 'Protecting auditory health in operational environments.'
   },
   {
-    title: 'Gatsby',
-    icon: <Gatsby />,
-    disabled: true,
+    id: 5,
+    title: 'Respiratory Protection',
+    icon: '/icons/mask.svg',
+    description: 'Proper use and maintenance of respiratory equipment.'
   },
   {
-    title: 'Angular',
-    icon: <Angular />,
-    disabled: true,
-  },
-  {
-    title: 'Django',
-    icon: <Django />,
-    disabled: true,
-  },
-  {
-    title: 'CSS',
-    icon: <CSS />,
-    disabled: true,
-  },
-  {
-    title: 'Kotlin',
-    icon: <Kotlin />,
-    disabled: true,
-  },
-  {
-    title: 'Laravel',
-    icon: <Laravel />,
-    disabled: true,
-  },
+    id: 6,
+    title: 'Sight Conservation',
+    icon: '/icons/vision.svg',
+    description: 'Protecting vision during operations and maintenance.'
+  }
 ]
+
+export default quizTopics

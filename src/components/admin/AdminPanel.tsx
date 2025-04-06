@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react'
+import AdminUpload from './AdminUpload'
 
 const AdminPanel = () => {
+  const [view, setView] = useState('upload')
+
   return (
-    <div className="admin-panel" style={{ padding: '2rem' }}>
-      <h2>🛠️ Admin Tools</h2>
-      <p>Use the tools below to manage quiz data.</p>
-
-      <iframe
-        src="/admin/tools/interface.html"
-        style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}
-        title="Admin Tools"
-      />
+    <div>
+      <h2>Admin Tools</h2>
+      {view === 'upload' && <AdminUpload />}
     </div>
-  );
-};
+  )
+}
 
-export default AdminPanel;
+export default AdminPanel

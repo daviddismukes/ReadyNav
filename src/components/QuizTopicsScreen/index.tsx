@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { AppLogo } from '../../config/icons'
 import { useQuiz } from '../../context/QuizContext'
-import { quizTopics } from '../../data/quizTopics'
+import  quizTopics  from '../../data/quizTopics'
 import { device } from '../../styles/BreakPoints'
 import {
   CenterCardContainer,
