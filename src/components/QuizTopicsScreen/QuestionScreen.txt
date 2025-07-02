@@ -1,0 +1,50 @@
+import React, { useState } from 'react'
+import { useQuiz } from '../../context/QuizContext'
+import { useNavigate } from 'react-router-dom'
+
+const QuestionScreen = () => {
+  const { questions, currentQuestionIndex, answerQuestion } = useQuiz()
+  const navigate = useNavigate()
+  const question = questions[currentQuestionIndex]
+
+  const [selected, setSelected] = useState<string | null>(null)
+
+  if (!question) return <p>Loading question...</p>
+
+  const handleSubmit = () => {
+    if (selected) {
+      answerQuestion(selected)
+      setSelected(null)
+      if (currentQuestionIndex + 1 < questions.length) {
+        // Proceed to next question
+      } else {
+        navigate('/result')
+      }
+    }
+  }
+
+  return (
+    <div>
+      <h2>{question.question}</h2>
+      <ul>
+        {question.options.map((opt: string, i: number) => (
+          <li key={i}>
+            <label>
+              <input
+                type="radio"
+                name="option"
+                value={opt}
+                checked={selected === opt}
+                onChange={() => setSelected(opt)}
+              />
+              {opt}
+            </label>
+          </li>
+        ))}
+      </ul>
+      <button onClick={handleSubmit} disabled={!selected}>Submit</button>
+    </div>
+  )
+}
+
+export default QuestionScreen
